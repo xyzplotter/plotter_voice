@@ -117,17 +117,19 @@
     }
 
     function sendToMain() {
-      const text = resultBox.value.trim();
+  const text = resultBox.value.trim();
 
-      if (!text) {
-        alert("보낼 텍스트가 없습니다.");
-        return;
-      }
+  if (!text) {
+    alert("보낼 텍스트가 없습니다.");
+    return;
+  }
 
-      const url = new URL("/", window.location.origin);
-      url.searchParams.set("voice", text);
-      window.location.href = url.toString();
-    }
+  const MAIN_URL = "https://hexastichic-stefany-tardo.ngrok-free.dev";
+  const url = new URL(MAIN_URL);
+  url.searchParams.set("voice", text);
+
+  window.location.href = url.toString();
+}
 
     function clearText() {
       resultBox.value = "";
